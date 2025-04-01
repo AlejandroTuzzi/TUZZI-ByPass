@@ -1,0 +1,13 @@
+[project]
+name = "comfyui-bypasser"
+version = "1.0.0"
+description = "A ComfyUI custom node that allows to use logical tools."
+authors = [
+    { name = "Alejandro Tuzzi", email = "alejandrotuzzi@gmail.com" }
+]
+license = "MIT"
+readme = "README.md"
+requires-python = ">=3.10"
+
+[tool.comfyui]
+module = "."
