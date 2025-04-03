@@ -45,6 +45,8 @@
 
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass.png)
 
+- **ES**: Al ser Python básico, no requiere de instalar librerías adicionales. La meta es crear una automatización perfecta, que cree videos de manera automatizada solo insertando un texto extenso, como un libro o guion. Iré haciendo actualizaciones, pero si necesitas algo particular, solo pídelo.
+- **EN**: Since Python is basic, it doesn't require installing additional libraries. The goal is to create seamless automation that automatically creates videos simply by inserting a long text, such as a book or script. I'll be making updates, but if you need something specific, just ask.
 ---
 
 ## ⚙️ Instalación / Installation
