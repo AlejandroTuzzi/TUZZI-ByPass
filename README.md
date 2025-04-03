@@ -42,6 +42,17 @@
   - Breaks every X words (never splitting them).
   - If the last fragment has fewer than Y words, it's merged with the previous one.
   - Great for breaking long texts into readable lines.
+ 
+---
+
+### 🔄 `Sequential Text Reader`
+- **ES**: Lee línea por línea desde un bloque de texto largo (`textarea`). Comienza desde el número de línea indicado (`line_number`). Si esa línea está vacía, busca la siguiente que contenga texto. Si llega al final del texto, vuelve al inicio, permitiendo ciclos infinitos. Ideal para automatizaciones que procesan textos paso a paso.
+- **EN**: Reads line by line from a long `textarea`. Starts from the provided `line_number`. If that line is empty, it searches the next available line with text. If it reaches the end, it loops back to the top — perfect for infinite loops or step-by-step text automation.
+
+✅ Outputs:
+- `selected_text`: the line found with content.
+- `updated_line_number`: the actual line where text was found (can be fed into loop logic).
+
 
 ### 🖼️ Example Workflow
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass.png)
