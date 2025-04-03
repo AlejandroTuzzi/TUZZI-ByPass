@@ -22,36 +22,39 @@ class TextFormatterPlus:
     CATEGORY = "TUZZI-ByPass"
 
     def format_text(self, text, enable_word_wrap=False, words_per_line=12, minimum_tail_words=0):
-        # Reemplaza punto y espacio por punto y salto de línea
+        # Reemplaza punto y espacio por punto + salto de línea
         base_text = text.replace(". ", ".\n")
 
-        # Elimina líneas vacías y junta el texto
-        lines = [line.strip() for line in base_text.splitlines() if line.strip()]
-        joined = " ".join(lines)  # Todo el texto en una sola línea
-
         if not enable_word_wrap:
+            # Limpia líneas vacías, pero conserva los saltos reales
+            lines = [line.strip() for line in base_text.splitlines() if line.strip()]
             return ("\n".join(lines),)
 
-        # Separar por palabras
-        words = joined.split()
-        fragments = []
-        current = []
+        # Si el word wrap está activo, procesamos línea por línea
+        final_lines = []
+        for line in base_text.splitlines():
+            stripped = line.strip()
+            if not stripped:
+                continue
 
-        for word in words:
-            current.append(word)
-            if len(current) == words_per_line:
-                fragments.append(" ".join(current))
-                current = []
+            words = stripped.split()
+            current = []
 
-        # Agregar cualquier fragmento restante
-        if current:
-            if minimum_tail_words > 0 and fragments:
-                if len(current) < minimum_tail_words:
-                    # Une el resto con el último fragmento
-                    fragments[-1] += " " + " ".join(current)
+            for word in words:
+                current.append(word)
+                if len(current) == words_per_line:
+                    final_lines.append(" ".join(current))
+                    current = []
+
+            # Manejo del fragmento restante
+            if current:
+                if minimum_tail_words > 0 and final_lines:
+                    if len(current) < minimum_tail_words:
+                        final_lines[-1] += " " + " ".join(current)
+                    else:
+                        final_lines.append(" ".join(current))
                 else:
-                    fragments.append(" ".join(current))
-            else:
-                fragments.append(" ".join(current))
+                    final_lines.append(" ".join(current))
 
-        return ("\n".join(fragments),)
+        return ("\n".join(final_lines),)
+
