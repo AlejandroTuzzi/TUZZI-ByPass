@@ -1,19 +1,93 @@
 # TUZZI-ByPass - Custom Nodes for ComfyUI
 
-### 🇪🇸 Nodos personalizados para flujos avanzados en ComfyUI  
-### 🇬🇧 Custom nodes for advanced workflows in ComfyUI
+### 🇪🇸 Nodos personalizados para flujos automatizados de IA  
+### 🇬🇧 Custom nodes for automated AI pipelines
 
 ---
 
-## 🧩 Descripción / Description
+## 🎯 ¿Qué es TUZZI-ByPass?
 
-**TUZZI-ByPass** es una colección de nodos utilitarios y de preprocesamiento de texto pensada para flujos automatizados con lógica condicional, manipulación de cadenas y formateo inteligente para uso con herramientas como IA generativa, generación de prompts y bucles controlados.
+**TUZZI-ByPass** es una colección de nodos personalizados para [ComfyUI](https://github.com/comfyanonymous/ComfyUI) que permite construir flujos avanzados de automatización. El objetivo final es crear un **loop capaz de extraer contenido de la web y transformarlo en un video narrativo**, utilizando texto y placas visuales generadas por IA.  
+Iré agregando nuevos nodos periódicamente, enfocados en procesamiento de texto, lógica condicional, scraping, formateo y generación de prompts inteligentes.  
+**Se aceptan sugerencias** de nodos o funcionalidades útiles.
 
-**TUZZI-ByPass** is a collection of utility and text preprocessing nodes designed for automated workflows, conditional logic, string manipulation, and smart formatting. Ideal for use with generative AI pipelines, prompt generation, and controlled loops.
+**TUZZI-ByPass** is a custom node pack for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) designed to enable advanced automation workflows. The final goal is to build a **loop that extracts content from the web and transforms it into AI-generated videos**, combining narrative text and visual plates.  
+New nodes will be added over time, especially focused on text processing, web scraping, logic control, and smart prompt generation.  
+**Suggestions are welcome!**
 
 ---
 
 ## 🔧 Nodos incluidos / Included Nodes
+
+### 🔗 Reddit Post Extractor
+
+**ES**  
+Este nodo permite extraer contenido desde cualquier post público de Reddit. Solo necesitás pegar la parte final de la URL del post (todo lo que sigue a `reddit.com/`). El nodo obtiene el título, el contenido original, el autor, la fecha y los comentarios principales (sin subcomentarios).  
+
+Para evitar hacer múltiples llamadas a Reddit en cada ciclo de un loop, el nodo incluye un sistema de **caché inteligente**:  
+- Si el campo `execution_count` vale `1`, el nodo realiza una petición real a Reddit.
+- Si el campo es mayor a `1`, simplemente reutiliza el contenido previamente guardado (caché).
+
+---
+
+**EN**  
+This node extracts content from any public Reddit post. You only need to paste the final part of the URL (everything after `reddit.com/`). It retrieves the post title, body, author, date, and all top-level comments (excluding replies).  
+
+To avoid redundant Reddit requests in looped workflows, the node includes a **smart caching system**:  
+- If `execution_count` equals `1`, it performs a real request.
+- If it's greater than `1`, it just returns the previously saved cache.
+
+---
+
+### 🔧 Cómo usarlo / How to use it
+
+- **Input `reddit_url_path`**  
+  Solo pegá la parte final del enlace del post:  
+  Just paste the end of the post link:  
+
+- r/AskReddit/comments/abc123/what_would_you_do/
+
+
+- **Input `execution_count`**
+
+Controla cuándo hacer la petición:
+
+| Valor / Value | Comportamiento / Behavior                          |
+|---------------|-----------------------------------------------------|
+| `1`           | Hace una petición a Reddit y guarda el resultado   |
+| `>1`          | Lee desde el archivo de caché (no hace petición)   |
+
+---
+
+### 💾 ¿Dónde se guarda el caché? / Where is cache stored?
+
+Los resultados se guardan como archivo `.txt` en:  
+The results are saved as `.txt` files inside:
+
+ComfyUI/reddit_cache/
+
+Por ejemplo:  
+If your input is:
+
+r/AskReddit/comments/abc123/my_question/
+
+Se crea:  
+It will generate:
+
+---
+
+### ✅ Output
+
+El nodo devuelve una salida de texto estructurada que incluye:  
+The node outputs a clean text block with:
+
+- 🧵 Título / Title  
+- ✍️ Autor / Author  
+- 📅 Fecha / Date  
+- 📄 Texto del post / Post body  
+- 💬 Comentarios con usuario y fecha / Top-level comments with user and date  
+
+---
 
 ### 🔀 `Bypasser Switch`
 - **ES**: Permite enrutar entre dos entradas de cualquier tipo (imagen, texto, número, etc.) según un valor `INT`. Ideal para lógica condicional.
