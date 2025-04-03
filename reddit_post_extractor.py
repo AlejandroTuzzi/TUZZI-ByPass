@@ -44,7 +44,7 @@ class RedditPostExtractor:
         try:
             response = requests.get(full_url, headers=headers)
             if response.status_code != 200:
-                return (f"❌ Error: Post not found or invalid URL. ({response.status_code})",)
+                return (f" Error: Post not found or invalid URL. ({response.status_code})",)
 
             data = response.json()
             post_info = data[0]["data"]["children"][0]["data"]
@@ -53,7 +53,7 @@ class RedditPostExtractor:
             created_utc = datetime.utcfromtimestamp(post_info["created_utc"]).strftime("%Y-%m-%d")
             selftext = post_info.get("selftext", "").strip()
 
-            formatted = f"🧵 Title: {title}\n📅 Date: {created_utc} | ✍️ Author: {author}\n\n{selftext}\n\n💬 Comments:\n"
+            formatted = f" Title: {title}\n Date: {created_utc} | Author: {author}\n\n{selftext}\n\n Comments:\n"
 
             comments = data[1]["data"]["children"]
             for c in comments:
@@ -71,4 +71,4 @@ class RedditPostExtractor:
 
             return (formatted,)
         except Exception as e:
-            return (f"❌ Failed to fetch or parse Reddit post: {str(e)}",)
+            return (f" Failed to fetch or parse Reddit post: {str(e)}",)
