@@ -87,6 +87,9 @@ The node outputs a clean text block with:
 - 📄 Texto del post / Post body  
 - 💬 Comentarios con usuario y fecha / Top-level comments with user and date  
 
+### 🖼️ Example Workflow
+![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass%20Reddit.png)
+
 ---
 
 ### 🔀 `Bypasser Switch`
@@ -141,3 +144,20 @@ The node outputs a clean text block with:
 
 ```bash
 git clone https://github.com/tuusuario/comfyui-tuzzi-bypass.git
+```
+
+---
+
+## 📚 Requisitos / Requirements
+
+Este paquete de nodos requiere las siguientes librerías externas:
+
+
+Si estás ejecutando ComfyUI en local, podés instalarlas fácilmente desde terminal con:
+
+```bash
+pip install requests
+```
+
+
+
