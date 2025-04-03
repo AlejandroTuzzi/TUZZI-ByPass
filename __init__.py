@@ -8,7 +8,8 @@ from .bypasser import Bypasser
 from .line_counter import LineCounter
 from .text_formatter import TextFormatter  
 from .text_formatter_plus import TextFormatterPlus  
-from .sequential_text_reader import SequentialTextReader  
+from .sequential_text_reader import SequentialTextReader
+from .reddit_post_extractor import RedditPostExtractor
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -16,6 +17,7 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-TextFormatter": TextFormatter,
     "TUZZI-TextFormatterPlus": TextFormatterPlus,
     "TUZZI-SequentialTextReader": SequentialTextReader,
+    "TUZZI-RedditPostExtractor": RedditPostExtractor,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -24,4 +26,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-TextFormatter": "Add Line Breaks to Text",
     "TUZZI-TextFormatterPlus": "Smart Line Breaks (by Word Count)",
     "TUZZI-SequentialTextReader": "Sequential Text Reader",
+    "TUZZI-RedditPostExtractor": "Reddit Post Extractor",
 }
