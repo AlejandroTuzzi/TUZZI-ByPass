@@ -43,6 +43,8 @@
   - If the last fragment has fewer than Y words, it's merged with the previous one.
   - Great for breaking long texts into readable lines.
 
+![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass.png)
+
 ---
 
 ## ⚙️ Instalación / Installation
