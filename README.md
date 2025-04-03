@@ -130,6 +130,31 @@ The node outputs a clean text block with:
 - `selected_text`: the line found with content.
 - `updated_line_number`: the actual line where text was found (can be fed into loop logic).
 
+---
+
+### 🔢 Number Each Line
+
+**ES**  
+Este nodo agrega automáticamente un número al inicio de cada línea de un bloque de texto, en el formato `1. texto`.  
+Es ideal para depuración y control visual cuando estás trabajando con loops que procesan grandes cantidades de texto (como 500+ líneas) y necesitás saber en qué parte del flujo estás.
+
+**EN**  
+This node automatically adds a number at the beginning of each line in a text block, using the format `1. text`.  
+It’s especially useful for debugging or visual tracking when processing large texts in loops (e.g., 500+ lines) and you want to see which line you're currently working with.
+
+---
+
+#### ✅ Output Example
+
+**Input:**
+
+Line one Line two Line three
+
+**Output:**
+
+1. Line one
+2. Line two
+3. Line three
 
 ### 🖼️ Example Workflow
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass.png)
