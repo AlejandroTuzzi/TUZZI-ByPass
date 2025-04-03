@@ -55,4 +55,4 @@
 1. Cloná o descargá este repositorio dentro de tu carpeta de `custom_nodes` de ComfyUI:
 
 ```bash
-git clone https://github.com/AlejandroTuzzi/TUZZI-ByPass.git
+git clone https://github.com/tuusuario/comfyui-tuzzi-bypass.git

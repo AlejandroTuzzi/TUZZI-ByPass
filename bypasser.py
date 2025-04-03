@@ -1,3 +1,9 @@
+# TUZZI-ByPass - Custom Node
+# Author: Alejandro Tuzzi
+# Website: https://www.tuzzi.es
+# Contact: alejandro@tuzzi.es
+# License: GNU General Public License v3.0
+
 class AnyType(str):
     def __ne__(self, __value: object) -> bool:
         return False

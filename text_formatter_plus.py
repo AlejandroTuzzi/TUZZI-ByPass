@@ -2,7 +2,7 @@
 # Author: Alejandro Tuzzi
 # Website: https://www.tuzzi.es
 # Contact: alejandro@tuzzi.es
-# License: MIT
+# License: GNU General Public License v3.0
 
 class TextFormatterPlus:
     @classmethod
