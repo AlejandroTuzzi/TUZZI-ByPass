@@ -11,6 +11,8 @@ from .text_formatter_plus import TextFormatterPlus
 from .sequential_text_reader import SequentialTextReader
 from .reddit_post_extractor import RedditPostExtractor
 from .number_lines import NumberLines
+from .image_audio_to_video import ImageAudioToVideo
+from .save_video_tuzzi import SaveVideoTUZZI
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -20,6 +22,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-SequentialTextReader": SequentialTextReader,
     "TUZZI-RedditPostExtractor": RedditPostExtractor,
     "TUZZI-NumberLines": NumberLines,
+    "TUZZI-ImageAudioToVideo": ImageAudioToVideo,
+    "TUZZI-SaveVideo": SaveVideoTUZZI,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -30,4 +34,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-SequentialTextReader": "Sequential Text Reader",
     "TUZZI-RedditPostExtractor": "Reddit Post Extractor",
     "TUZZI-NumberLines": "Number Each Line",
+    "TUZZI-ImageAudioToVideo": "Image + Audio to Video",
+    "TUZZI-SaveVideo": "💾 TUZZI Save Video (UI Output)",
 }
