@@ -200,7 +200,7 @@ Este paquete de nodos requiere las siguientes librerías externas:
 Si estás ejecutando ComfyUI en local, podés instalarlas fácilmente desde terminal con:
 
 ```bash
-pip install requests
+pip install -r requirements.txt
 ```
 
 
