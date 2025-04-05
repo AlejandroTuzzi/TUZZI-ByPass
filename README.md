@@ -187,7 +187,7 @@ Line one Line two Line three
 1. Cloná o descargá este repositorio dentro de tu carpeta de `custom_nodes` de ComfyUI:
 
 ```bash
-git clone https://github.com/tuusuario/comfyui-tuzzi-bypass.git
+git clone https://github.com/AlejandroTuzzi/comfyui-tuzzi-bypass.git
 ```
 
 ---
