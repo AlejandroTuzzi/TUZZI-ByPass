@@ -19,34 +19,47 @@ New nodes will be added over time, especially focused on text processing, web sc
 
 ## 🔧 Nodos incluidos / Included Nodes
 
-### 🔗 Reddit Post Extractor
+🔗 Reddit Post Extractor
+ES
+Este nodo permite extraer contenido desde cualquier post público de Reddit. Solo necesitás pegar la parte final de la URL del post (todo lo que sigue a reddit.com/).
+Obtiene:
 
-**ES**  
-Este nodo permite extraer contenido desde cualquier post público de Reddit. Solo necesitás pegar la parte final de la URL del post (todo lo que sigue a `reddit.com/`). El nodo obtiene el título, el contenido original, el autor, la fecha y los comentarios principales (sin subcomentarios).  
+🧵 Título
 
-Para evitar hacer múltiples llamadas a Reddit en cada ciclo de un loop, el nodo incluye un sistema de **caché inteligente**:  
-- Si el campo `execution_count` vale `1`, el nodo realiza una petición real a Reddit.
-- Si el campo es mayor a `1`, simplemente reutiliza el contenido previamente guardado (caché).
+✍️ Autor
 
----
+📅 Fecha de publicación (opcional)
 
-**EN**  
-This node extracts content from any public Reddit post. You only need to paste the final part of the URL (everything after `reddit.com/`). It retrieves the post title, body, author, date, and all top-level comments (excluding replies).  
+📄 Cuerpo del post
 
-To avoid redundant Reddit requests in looped workflows, the node includes a **smart caching system**:  
-- If `execution_count` equals `1`, it performs a real request.
-- If it's greater than `1`, it just returns the previously saved cache.
+💬 Comentarios principales (sin subcomentarios), incluyendo nombre y fecha (también opcional)
 
----
+✅ Parámetros importantes:
 
-### 🔧 Cómo usarlo / How to use it
+Campo	Descripción
+reddit_url_path	Parte final de la URL del post de Reddit (ej: r/AskReddit/comments/abc123)
+execution_count	Controla si se hace una nueva consulta o se usa caché local
+include_dates	Si está activado, se muestran las fechas en el post y en los comentarios
+EN
+This node extracts content from any public Reddit post. Just paste the last part of the URL (everything after reddit.com/).
+It retrieves:
 
-- **Input `reddit_url_path`**  
-  Solo pegá la parte final del enlace del post:  
-  Just paste the end of the post link:  
+🧵 Title
 
-- r/AskReddit/comments/abc123/what_would_you_do/
+✍️ Author
 
+📅 Post date (optional)
+
+📄 Post body
+
+💬 Top-level comments (excluding replies), with username and date (also optional)
+
+✅ Key parameters:
+
+Field	Description
+reddit_url_path	The trailing part of the Reddit post URL (e.g. r/AskReddit/comments/abc123)
+execution_count	Controls whether to fetch again or use cached result
+include_dates	If enabled, displays dates in the post and comments
 
 - **Input `execution_count`**
 
@@ -75,17 +88,6 @@ Se crea:
 It will generate:
 
 ---
-
-### ✅ Output
-
-El nodo devuelve una salida de texto estructurada que incluye:  
-The node outputs a clean text block with:
-
-- 🧵 Título / Title  
-- ✍️ Autor / Author  
-- 📅 Fecha / Date  
-- 📄 Texto del post / Post body  
-- 💬 Comentarios con usuario y fecha / Top-level comments with user and date  
 
 ### 🖼️ Example Workflow
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass%20Reddit.png)
