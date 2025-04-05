@@ -20,7 +20,7 @@ New nodes will be added over time, especially focused on text processing, web sc
 ## 🔧 Nodos incluidos / Included Nodes
 
 🔗 Reddit Post Extractor
-ES
+🇪🇸 ES
 Este nodo permite extraer contenido desde cualquier post público de Reddit. Solo necesitás pegar la parte final de la URL del post (todo lo que sigue a reddit.com/).
 Obtiene:
 
@@ -37,10 +37,12 @@ Obtiene:
 ✅ Parámetros importantes:
 
 Campo	Descripción
-reddit_url_path	Parte final de la URL del post de Reddit (ej: r/AskReddit/comments/abc123)
-execution_count	Controla si se hace una nueva consulta o se usa caché local
-include_dates	Si está activado, se muestran las fechas en el post y en los comentarios
-EN
+- reddit_url_path:	Parte final de la URL del post de Reddit (ej: r/AskReddit/comments/abc123)
+- execution_count:	Controla si se hace una nueva consulta o se usa caché local
+- include_dates:	Si está activado, se muestran las fechas en el post y en los comentarios
+- max_comments:	Límite de elementos solicitados a la API de Reddit (máx: 400). ⚠️ Esto no garantiza que se devuelvan tantos comentarios válidos.
+
+🇬🇧 EN
 This node extracts content from any public Reddit post. Just paste the last part of the URL (everything after reddit.com/).
 It retrieves:
 
@@ -57,9 +59,10 @@ It retrieves:
 ✅ Key parameters:
 
 Field	Description
-reddit_url_path	The trailing part of the Reddit post URL (e.g. r/AskReddit/comments/abc123)
-execution_count	Controls whether to fetch again or use cached result
-include_dates	If enabled, displays dates in the post and comments
+- reddit_url_path:	The trailing part of the Reddit post URL (e.g. r/AskReddit/comments/abc123)
+- execution_count:	Controls whether to fetch again or use cached result
+- include_dates:	If enabled, displays dates in the post and comments
+- max_comments:	Limit of items requested from Reddit’s API (max: 400). ⚠️ This does not guarantee that many usable top-level comments will be returned.
 
 - **Input `execution_count`**
 
@@ -67,8 +70,8 @@ Controla cuándo hacer la petición:
 
 | Valor / Value | Comportamiento / Behavior                          |
 |---------------|-----------------------------------------------------|
-| `1`           | Hace una petición a Reddit y guarda el resultado   |
-| `>1`          | Lee desde el archivo de caché (no hace petición)   |
+| `1`           | Hace una petición a Reddit y guarda el resultado // Make a request to Reddit and save the result   |
+| `>1`          | Lee desde el archivo de caché (no hace petición) // Read from the cache file (does not make a request) |
 
 ---
 
