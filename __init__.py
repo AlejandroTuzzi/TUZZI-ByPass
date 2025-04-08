@@ -13,6 +13,8 @@ from .reddit_post_extractor import RedditPostExtractor
 from .number_lines import NumberLines
 from .image_audio_to_video import ImageAudioToVideo
 from .save_video_tuzzi import SaveVideoTUZZI
+from .youtube_comment_extractor import YouTubeCommentExtractor
+from .youtube_subtitle_extractor import YouTubeSubtitleExtractor
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -24,6 +26,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-NumberLines": NumberLines,
     "TUZZI-ImageAudioToVideo": ImageAudioToVideo,
     "TUZZI-SaveVideo": SaveVideoTUZZI,
+    "TUZZI-YouTubeCommentExtractor": YouTubeCommentExtractor,
+    "TUZZI-YouTubeSubtitleExtractor": YouTubeSubtitleExtractor,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -36,4 +40,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-NumberLines": "Number Each Line",
     "TUZZI-ImageAudioToVideo": "Image + Audio to Video",
     "TUZZI-SaveVideo": "💾 TUZZI Save Video (UI Output)",
+    "TUZZI-YouTubeCommentExtractor": "YouTube Comment Extractor",
+    "TUZZI-YouTubeSubtitleExtractor": "YouTube Subtitle Extractor",
 }
