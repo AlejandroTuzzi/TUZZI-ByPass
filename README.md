@@ -95,6 +95,82 @@ It will generate:
 ### 🖼️ Example Workflow
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass%20Reddit.png)
 
+---
+
+### 🎥 YouTube Comment Extractor
+
+**ES**  
+Este nodo permite extraer comentarios de un video de YouTube mediante la API oficial de Google. Solo necesitás una API key válida (que se coloca en un archivo llamado `youtube_api_key.txt` en la raíz del proyecto).
+
+- 🧵 Título del video
+- ✍️ Canal del autor
+- 📅 Fecha de publicación (opcional)
+- 📄 Descripción
+- 💬 Comentarios del primer nivel (sin subcomentarios)
+
+✅ Parámetros:
+- `youtube_url_or_id`: puede ser el enlace completo o solo el ID del video
+- `execution_count`: si es > 1, se usa el caché local (no hace nueva llamada)
+- `include_dates`: si se activa, se incluyen fechas en los comentarios
+- `max_comments`: número máximo de comentarios principales a devolver
+- `order`: `relevance` (por defecto) o `time`
+
+---
+
+**EN**  
+This node extracts top-level comments from a YouTube video using the official Google API. You only need a valid API key (placed in a file called `youtube_api_key.txt` in the project root).
+
+- 🧵 Video title
+- ✍️ Channel name
+- 📅 Publish date (optional)
+- 📄 Description
+- 💬 Top-level comments (no replies)
+
+✅ Parameters:
+- `youtube_url_or_id`: can be full URL or just video ID
+- `execution_count`: if > 1, cached result will be used
+- `include_dates`: enables/disables dates on output
+- `max_comments`: max amount of comments to return
+- `order`: `relevance` (default) or `time`
+
+---
+
+### 🎞️ YouTube Subtitle Extractor
+
+**ES**  
+Este nodo intenta extraer los subtítulos disponibles (automáticos o cargados) de un video de YouTube. Utiliza la librería `youtube-transcript-api` y no requiere autenticación. Devuelve el texto plano directamente.
+
+- 🌐 Funciona con subtítulos en múltiples idiomas
+- 📄 Devuelve el texto como `STRING`
+- 🗂️ También guarda un `.txt` en `ComfyUI/output/<subcarpeta>/`
+- 🧼 El nombre del archivo se genera a partir del título del video, sanitizado
+
+✅ Parámetros:
+- `youtube_url_or_id`: enlace o ID del video
+- `output_subfolder`: carpeta de salida dentro de `output/`
+- `preferred_languages`: idiomas preferidos para los subtítulos (`en,es` por defecto)
+
+---
+
+**EN**  
+This node extracts available subtitles (auto or manual) from a YouTube video using `youtube-transcript-api`. It doesn’t require authentication and returns the raw text directly.
+
+- 🌐 Supports multiple languages
+- 📄 Returns the full transcript as `STRING`
+- 🗂️ Also saves a `.txt` file inside `ComfyUI/output/<subfolder>/`
+- 🧼 File is named using the video title, sanitized
+
+✅ Parameters:
+- `youtube_url_or_id`: video link or ID
+- `output_subfolder`: target folder inside `output/`
+- `preferred_languages`: preferred subtitle languages (`en,es` by default)
+
+---
+
+### 🖼️ Example Workflow
+![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPassYoutube.png)
+
+---
 
 ### 💾 TUZZI Save Video
 
