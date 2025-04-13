@@ -97,41 +97,35 @@ It will generate:
 
 ---
 
-### 🎥 YouTube Comment Extractor
+### 🎥 YouTubeCommentExtractor
 
 **ES**  
-Este nodo permite extraer comentarios de un video de YouTube mediante la API oficial de Google. Solo necesitás una API key válida (que se coloca en un archivo llamado `youtube_api_key.txt` en la raíz del proyecto).
+Este nodo obtiene los comentarios de un video de YouTube usando la API oficial. Las últimas mejoras incluyen:
 
-- 🧵 Título del video
-- ✍️ Canal del autor
-- 📅 Fecha de publicación (opcional)
-- 📄 Descripción
-- 💬 Comentarios del primer nivel (sin subcomentarios)
+- Opción para incluir o excluir la descripción del video
+- Eliminación opcional de emojis del contenido
+- Inclusión de respuestas si se desea
+- Generación de caché única por combinación de opciones
 
 ✅ Parámetros:
-- `youtube_url_or_id`: puede ser el enlace completo o solo el ID del video
-- `execution_count`: si es > 1, se usa el caché local (no hace nueva llamada)
-- `include_dates`: si se activa, se incluyen fechas en los comentarios
-- `max_comments`: número máximo de comentarios principales a devolver
-- `order`: `relevance` (por defecto) o `time`
-
----
+- `include_description`: incluye el cuerpo del video
+- `remove_emojis`: limpia los comentarios y títulos
+- `include_replies`: permite recuperar respuestas (no solo comentarios principales)
 
 **EN**  
-This node extracts top-level comments from a YouTube video using the official Google API. You only need a valid API key (placed in a file called `youtube_api_key.txt` in the project root).
+This node fetches YouTube comments using the official API. Recent improvements include:
 
-- 🧵 Video title
-- ✍️ Channel name
-- 📅 Publish date (optional)
-- 📄 Description
-- 💬 Top-level comments (no replies)
+- Option to include/exclude video description
+- Optional emoji removal from content
+- Option to include replies
+- Smart cache depending on options used
 
 ✅ Parameters:
-- `youtube_url_or_id`: can be full URL or just video ID
-- `execution_count`: if > 1, cached result will be used
-- `include_dates`: enables/disables dates on output
-- `max_comments`: max amount of comments to return
-- `order`: `relevance` (default) or `time`
+- `include_description`: include video body
+- `remove_emojis`: strip emojis from comments
+- `include_replies`: include comment replies
+
+---
 
 ---
 
@@ -255,6 +249,74 @@ Line one Line two Line three
 1. Line one
 2. Line two
 3. Line three
+
+---
+
+### ✂️ TextTruncatorPlus
+
+**ES**  
+Este nodo corta un texto largo después de cierta cantidad de caracteres y añade un sufijo personalizado. Ideal para títulos, introducciones o resúmenes controlados.
+
+✅ Parámetros:
+- `text`: texto original a truncar
+- `cut_after_char`: número máximo de caracteres antes del corte
+- `suffix`: texto que se añadirá al final (ej. `(...)`)
+
+**EN**  
+This node truncates a long string after a specific number of characters and appends a custom suffix. Ideal for headlines or preview snippets.
+
+✅ Parameters:
+- `text`: original string
+- `cut_after_char`: max characters before cut
+- `suffix`: string to append (e.g. `(...)`)
+
+---
+
+### 🪜 SequentialTextReaderAuto
+
+**ES**  
+Lee una línea distinta en cada ejecución de un mismo bloque de texto. Si el texto cambia, el contador se reinicia automáticamente. Usa caché persistente y hash para detectar modificaciones.
+
+✅ Características:
+- Incrementa línea automáticamente
+- Reinicia si el texto cambia
+- Guarda y carga estado desde `tuzzi_cache/`
+
+**EN**  
+Reads one line at a time from a multi-line text block. Automatically advances on each execution. If the text changes, the counter resets.
+
+✅ Features:
+- Auto-incrementing line reader
+- Resets on content change
+- Uses persistent cache to track position
+
+---
+
+### 🔗 LinkSuppressor
+
+**ES**  
+Reemplaza enlaces en texto por un mensaje personalizado. Detecta:
+
+- URLs directas (`https://...`)
+- Enlaces Markdown (`[texto](url)`)
+- Enlaces HTML (`<a href="...">texto</a>`)
+- Adjuntos de imagen con parámetros largos
+
+✅ Parámetros:
+- `replacement_text`: texto con el que reemplazar los enlaces (por defecto: `(Link Deleted)`)
+
+**EN**  
+Replaces links in text with a custom message. Detects:
+
+- Direct URLs (`https://...`)
+- Markdown links (`[text](url)`)
+- HTML anchors (`<a href="...">text</a>`)
+- Media links with long query strings
+
+✅ Parameters:
+- `replacement_text`: text used to replace the links (default: `(Link Deleted)`)
+
+---
 
 ### 🖼️ Example Workflow
 ![TUZZI-ByPass Screenshot](screenshots/Screenshots%20TUZZI-ByPass.png)
