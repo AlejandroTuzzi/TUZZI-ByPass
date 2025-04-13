@@ -15,6 +15,9 @@ from .image_audio_to_video import ImageAudioToVideo
 from .save_video_tuzzi import SaveVideoTUZZI
 from .youtube_comment_extractor import YouTubeCommentExtractor
 from .youtube_subtitle_extractor import YouTubeSubtitleExtractor
+from .text_truncator_plus import TextTruncatorPlus
+from .sequential_text_reader_auto import SequentialTextReaderAuto
+from .link_suppressor import LinkSuppressor
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -28,6 +31,9 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-SaveVideo": SaveVideoTUZZI,
     "TUZZI-YouTubeCommentExtractor": YouTubeCommentExtractor,
     "TUZZI-YouTubeSubtitleExtractor": YouTubeSubtitleExtractor,
+    "TUZZI-TextTruncatorPlus": TextTruncatorPlus,
+    "TUZZI-SequentialTextReaderAuto": SequentialTextReaderAuto,
+    "TUZZI-LinkSuppressor": LinkSuppressor,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -42,4 +48,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-SaveVideo": "💾 TUZZI Save Video (UI Output)",
     "TUZZI-YouTubeCommentExtractor": "YouTube Comment Extractor",
     "TUZZI-YouTubeSubtitleExtractor": "YouTube Subtitle Extractor",
+    "TUZZI-TextTruncatorPlus": "✂️ Text Truncator Plus",
+    "TUZZI-SequentialTextReaderAuto": "🪜 Sequential Text Reader (Auto)",
+    "TUZZI-LinkSuppressor": "🔗 Link Suppressor",
 }
