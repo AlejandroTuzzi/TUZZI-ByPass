@@ -20,6 +20,7 @@ from .sequential_text_reader_auto import SequentialTextReaderAuto
 from .link_suppressor import LinkSuppressor
 from .image_extractor_saver import ImageExtractorSaver
 from .directory_image_prompt_reader import DirectoryImagePromptReader
+from .text_translator_exporter import TextTranslatorExporter
 
 
 NODE_CLASS_MAPPINGS = {
@@ -39,6 +40,7 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-LinkSuppressor": LinkSuppressor,
     "TUZZI-ImageExtractorSaver": ImageExtractorSaver,
     "TUZZI-DirectoryImagePromptReader": DirectoryImagePromptReader,
+    "TUZZI-TextTranslatorExporter": TextTranslatorExporter,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -58,4 +60,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-LinkSuppressor": "🔗 Link Suppressor",
     "TUZZI-ImageExtractorSaver": "🖼️ Image Extractor & Saver",
     "TUZZI-DirectoryImagePromptReader": "🗂️ Image + Prompt Loader (Sequential/Random)",
+    "TUZZI-TextTranslatorExporter": "🌍 Text Translator + Exporter (GPT-4)",
 }
