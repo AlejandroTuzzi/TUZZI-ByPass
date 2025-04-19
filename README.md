@@ -325,6 +325,102 @@ Replaces links in text with a custom message. Detects:
 - **EN**: Since Python is basic, it doesn't require installing additional libraries. The goal is to create seamless automation that automatically creates videos simply by inserting a long text, such as a book or script. I'll be making updates, but if you need something specific, just ask.
 ---
 
+### 🗂️ Image + Prompt Loader (Sequential/Random)
+ES
+Este nodo recorre una carpeta de imágenes y devuelve:
+
+- La imagen como tensor visualizable en ComfyUI
+- El prompt asociado (extraído de prompts.txt)
+- El nombre del archivo de imagen (por si querés usarlo como referencia)
+
+### ✅ Características:
+
+- Modo secuencial o aleatorio
+- Reinicia al llegar al final
+- Puede recorrer subcarpetas
+- Si no encuentra prompt, devuelve: "image without text description"
+
+📝 Formato del archivo prompts.txt:
+
+nombre_de_imagen.jpg: Descripción del contenido visual.
+
+EN
+Scans a folder of images and returns:
+
+- The image as a tensor for ComfyUI
+- The associated prompt (from prompts.txt)
+- The image filename (for logs or reference)
+
+### ✅ Features:
+
+- Sequential or random loop
+- Auto-restart at the end
+- Optional recursive scan
+
+If no prompt: "image without text description"
+
+### 🖼️ Image Extractor & Saver
+
+ES
+Este nodo busca imágenes dentro de texto plano (como los comentarios de Reddit) y:
+
+- Descarga cada imagen encontrada en una carpeta especificada
+- Reemplaza cada enlace por una marca como [image by usuario] o [image by unknown]
+- Evita duplicados y conserva autoría cuando se puede
+
+✅ Útil para:
+
+- Procesar contenido de Reddit, YouTube, etc.
+- Enriquecer narraciones con imágenes reales o memes
+
+EN
+This node parses plain text to:
+
+- Download all image URLs to a folder
+- Replace each URL with [image by author] or [image by unknown]
+- Prevent duplicates and preserve author identity if available
+
+✅ Best for:
+
+- Processing Reddit/YouTube content
+- Enriching stories with real images or memes
+
+### 📁 DirectoryImagePromptReader (Con nombre del archivo)
+
+ES
+Versión avanzada del loader de imágenes que también entrega el nombre del archivo original como salida extra (además del prompt y la imagen).
+
+✅ Salidas:
+
+- Imagen (IMAGE)
+- Prompt (STRING)
+- Nombre del archivo (STRING)
+
+Debes tener un archivo llamado "prompts.txt" en la misma carpeta que están las imágenes, y cada línea de texto, deberá estar escrita con esta estructura: 
+
+```bash
+NombreDeLaImagen.jpg: Prompt largo de texto.
+```
+Es importante escribir la extensión. El nodo tomará el prompt de la línea completa que tenga al principio el nombre de la imagen que está leyendo.
+
+EN
+Advanced image loader that also returns the image filename as a third output.
+
+✅ Outputs:
+
+- Image (IMAGE)
+- Prompt (STRING)
+- Filename (STRING)
+
+You must have a file called "prompts.txt" in the same folder as the images, and each line of text must be written with this structure:
+
+```bash
+ImageName.jpg: Long text prompt.
+```
+It's important to write the extension. Node will take the prompt from the entire line that begins with the name of the image it's reading.
+
+---
+
 ## ⚙️ Instalación / Installation
 
 1. Cloná o descargá este repositorio dentro de tu carpeta de `custom_nodes` de ComfyUI:
