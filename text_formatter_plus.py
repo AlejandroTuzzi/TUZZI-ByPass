@@ -13,6 +13,7 @@ class TextFormatterPlus:
                 "enable_word_wrap": ("BOOLEAN", {"default": False}),
                 "words_per_line": ("INT", {"default": 12, "min": 1, "max": 999}),
                 "minimum_tail_words": ("INT", {"default": 0, "min": 0, "max": 999}),
+                "remove_patterns": ("STRING", {"default": ""}),
             }
         }
 
@@ -21,7 +22,12 @@ class TextFormatterPlus:
     FUNCTION = "format_text"
     CATEGORY = "TUZZI-ByPass"
 
-    def format_text(self, text, enable_word_wrap=False, words_per_line=12, minimum_tail_words=0):
+    def format_text(self, text, enable_word_wrap=False, words_per_line=12, minimum_tail_words=0, remove_patterns=""):
+        # Eliminar patrones indeseados definidos por el usuario
+        if remove_patterns.strip():
+            for pattern in [p.strip() for p in remove_patterns.split(",") if p.strip()]:
+                text = text.replace(pattern, "")
+
         # Reemplaza punto y espacio por punto + salto de línea
         base_text = text.replace(". ", ".\n")
 
@@ -57,4 +63,3 @@ class TextFormatterPlus:
                     final_lines.append(" ".join(current))
 
         return ("\n".join(final_lines),)
-

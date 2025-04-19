@@ -18,6 +18,9 @@ from .youtube_subtitle_extractor import YouTubeSubtitleExtractor
 from .text_truncator_plus import TextTruncatorPlus
 from .sequential_text_reader_auto import SequentialTextReaderAuto
 from .link_suppressor import LinkSuppressor
+from .image_extractor_saver import ImageExtractorSaver
+from .directory_image_prompt_reader import DirectoryImagePromptReader
+
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -34,6 +37,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-TextTruncatorPlus": TextTruncatorPlus,
     "TUZZI-SequentialTextReaderAuto": SequentialTextReaderAuto,
     "TUZZI-LinkSuppressor": LinkSuppressor,
+    "TUZZI-ImageExtractorSaver": ImageExtractorSaver,
+    "TUZZI-DirectoryImagePromptReader": DirectoryImagePromptReader,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -51,4 +56,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-TextTruncatorPlus": "✂️ Text Truncator Plus",
     "TUZZI-SequentialTextReaderAuto": "🪜 Sequential Text Reader (Auto)",
     "TUZZI-LinkSuppressor": "🔗 Link Suppressor",
+    "TUZZI-ImageExtractorSaver": "🖼️ Image Extractor & Saver",
+    "TUZZI-DirectoryImagePromptReader": "🗂️ Image + Prompt Loader (Sequential/Random)",
 }
