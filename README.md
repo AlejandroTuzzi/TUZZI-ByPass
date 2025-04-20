@@ -400,14 +400,6 @@ These nodes allow you to define text or (title + URL) blocks tied to numeric ran
 - If values are misconfigured (e.g., range3 < range2), returns a warning.
 - Also returns the `offset` for the current range, useful to reset counters in sequential systems.
 
-"""
-
-readme_path = Path("/mnt/data/README.md")
-with open(readme_path, "a", encoding="utf-8") as f:
-    f.write(bloque_ranged.strip())
-
-readme_path.name
-
 ---
 
 ## ⚙️ Instalación / Installation
