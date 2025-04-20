@@ -23,6 +23,9 @@ from .directory_image_prompt_reader import DirectoryImagePromptReader
 from .text_translator_exporter import TextTranslatorExporter
 from .gemini_25_flash_node import GeminiFlash25
 from .plos_article_scraper import PlosArticleScraper
+from .ranged_selector_text5 import RangedSelectorText5
+from .ranged_selector_title_url5 import RangedSelectorTitleURL5
+from .ranged_selector_title_url10 import RangedSelectorTitleURL10
 
 
 NODE_CLASS_MAPPINGS = {
@@ -45,6 +48,9 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-TextTranslatorExporter": TextTranslatorExporter,
     "TUZZI-GeminiFlash25": GeminiFlash25,
     "TUZZI-PlosArticleScraper": PlosArticleScraper,
+    "TUZZI-RangedSelectorText5": RangedSelectorText5,
+    "TUZZI-RangedSelectorTitleURL5": RangedSelectorTitleURL5,
+    "TUZZI-RangedSelectorTitleURL10": RangedSelectorTitleURL10,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -67,4 +73,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-TextTranslatorExporter": "🌍 Text Translator + Exporter (GPT-4)",
     "TUZZI-GeminiFlash25": "⚡ Gemini 2.5 Flash (Text)",
     "TUZZI-PlosArticleScraper": "📖 PLOS Article Scraper",
+    "TUZZI-RangedSelectorText5": "🧮 Ranged Text Selector (5 Slots)",
+    "TUZZI-RangedSelectorTitleURL5": "🧭 Ranged Title + URL Selector (5 Slots)",
+    "TUZZI-RangedSelectorTitleURL10": "🔟 Ranged Title + URL Selector (10 Slots)",
 }

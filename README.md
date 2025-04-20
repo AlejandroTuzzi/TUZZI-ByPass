@@ -370,6 +370,49 @@ This node scrapes full scientific articles from [journals.plos.org](https://jour
 - If `execute ≠ 1`, it reads the existing file (no new requests)
 - If no cache exists and `execute ≠ 1`, it returns an error message
 
+
+from pathlib import Path
+
+# Nuevo bloque README para los nodos "RangedSelector"
+bloque_ranged = """
+---
+
+### 🔢 RangedSelectorText5 & RangedSelectorTitleURL5 / TitleURL10
+
+**ES**  
+Estos nodos permiten definir bloques de contenido (texto o título + URL) asociados a rangos de números. Perfecto para automatizar fuentes múltiples en bucles controlados.
+
+- `RangedSelectorText5`: 5 textos con sus respectivos topes numéricos
+- `RangedSelectorTitleURL5`: 5 pares (título, URL) con rangos personalizados
+- `RangedSelectorTitleURL10`: 10 pares (título, URL) para uso más intensivo
+
+✅ Cómo funciona:
+- Cada bloque tiene un `rangeX` que define el valor máximo para activarse.
+- El nodo devuelve el contenido del bloque correspondiente a `index`.
+- Si el `index` está entre dos bloques o mal configurado, devuelve vacío o mensaje de error.
+- También devuelve el `offset`, que es el valor mínimo del bloque actual. Esto permite sincronizar secuencias que deben reiniciarse por texto nuevo.
+
+**EN**  
+These nodes allow you to define text or (title + URL) blocks tied to numeric ranges. Ideal for orchestrating multiple sources inside a loop.
+
+- `RangedSelectorText5`: 5 text blocks with individual range caps
+- `RangedSelectorTitleURL5`: 5 (title + url) pairs with custom limits
+- `RangedSelectorTitleURL10`: same, but supports 10 slots
+
+✅ Behavior:
+- Each block has a `rangeX` that defines its upper bound.
+- The node returns the content (or title/url pair) for the matching `index`.
+- If values are misconfigured (e.g., range3 < range2), returns a warning.
+- Also returns the `offset` for the current range, useful to reset counters in sequential systems.
+
+"""
+
+readme_path = Path("/mnt/data/README.md")
+with open(readme_path, "a", encoding="utf-8") as f:
+    f.write(bloque_ranged.strip())
+
+readme_path.name
+
 ---
 
 ## ⚙️ Instalación / Installation
