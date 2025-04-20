@@ -370,11 +370,6 @@ This node scrapes full scientific articles from [journals.plos.org](https://jour
 - If `execute ≠ 1`, it reads the existing file (no new requests)
 - If no cache exists and `execute ≠ 1`, it returns an error message
 
-
-from pathlib import Path
-
-# Nuevo bloque README para los nodos "RangedSelector"
-bloque_ranged = """
 ---
 
 ### 🔢 RangedSelectorText5 & RangedSelectorTitleURL5 / TitleURL10
