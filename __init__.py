@@ -21,6 +21,8 @@ from .link_suppressor import LinkSuppressor
 from .image_extractor_saver import ImageExtractorSaver
 from .directory_image_prompt_reader import DirectoryImagePromptReader
 from .text_translator_exporter import TextTranslatorExporter
+from .gemini_25_flash_node import GeminiFlash25
+from .plos_article_scraper import PlosArticleScraper
 
 
 NODE_CLASS_MAPPINGS = {
@@ -41,6 +43,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-ImageExtractorSaver": ImageExtractorSaver,
     "TUZZI-DirectoryImagePromptReader": DirectoryImagePromptReader,
     "TUZZI-TextTranslatorExporter": TextTranslatorExporter,
+    "TUZZI-GeminiFlash25": GeminiFlash25,
+    "TUZZI-PlosArticleScraper": PlosArticleScraper,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -61,4 +65,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-ImageExtractorSaver": "🖼️ Image Extractor & Saver",
     "TUZZI-DirectoryImagePromptReader": "🗂️ Image + Prompt Loader (Sequential/Random)",
     "TUZZI-TextTranslatorExporter": "🌍 Text Translator + Exporter (GPT-4)",
+    "TUZZI-GeminiFlash25": "⚡ Gemini 2.5 Flash (Text)",
+    "TUZZI-PlosArticleScraper": "📖 PLOS Article Scraper",
 }

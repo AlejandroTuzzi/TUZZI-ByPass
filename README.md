@@ -325,6 +325,53 @@ Replaces links in text with a custom message. Detects:
 - **EN**: Since Python is basic, it doesn't require installing additional libraries. The goal is to create seamless automation that automatically creates videos simply by inserting a long text, such as a book or script. I'll be making updates, but if you need something specific, just ask.
 ---
 
+
+---
+
+### 🌐 GeminiFlash25 (Gemini 2.5 Flash API)
+
+**ES**  
+Este nodo se conecta a la API de Google Gemini 2.5 Flash. Permite enviar un texto (`user_input`) y un prompt que lo instruye (`prompt_instruction`), y recibir la respuesta generada. Ideal para transformar, resumir o analizar grandes cantidades de texto dentro de un workflow.
+
+✅ Características clave:
+- Usa API oficial de Gemini
+- Usa caché inteligente (almacena la respuesta para cada combinación única de prompt + input)
+- Si `should_generate ≠ 1`, se devuelve la respuesta almacenada anterior (si existe), o el texto original
+- Guarda los resultados en `gemini_cache/`
+
+**EN**  
+This node connects to the official Gemini 2.5 Flash API. You can provide a prompt (`prompt_instruction`) and input text (`user_input`), and it will return a generated response. Great for transformation, summarization or interpretation inside loops.
+
+✅ Key features:
+- Uses Gemini official API
+- Smart cache (stores one result per unique prompt+input combination)
+- If `should_generate ≠ 1`, it returns the previous result (if exists) or the raw input
+- Cached results are stored in `gemini_cache/`
+
+---
+
+### 📄 PlosArticleScraper
+
+**ES**  
+Este nodo extrae el contenido completo de artículos científicos desde [journals.plos.org](https://journals.plos.org). Devuelve el título, fecha, autores, abstract y cuerpo (sin referencias ni secciones suplementarias).
+
+✅ Funcionalidad avanzada:
+- Usa BeautifulSoup para parsear el HTML localmente
+- Guarda el artículo HTML como caché en `plos_cache/`
+- Si `execute ≠ 1`, reutiliza el HTML existente (sin hacer nueva petición)
+- Si no hay caché y `execute ≠ 1`, devuelve un mensaje informando
+
+**EN**  
+This node scrapes full scientific articles from [journals.plos.org](https://journals.plos.org). It returns the title, date, authors, abstract and article body (excluding references and attachments).
+
+✅ Smart behavior:
+- Uses BeautifulSoup to parse content locally
+- Stores HTML in `plos_cache/`
+- If `execute ≠ 1`, it reads the existing file (no new requests)
+- If no cache exists and `execute ≠ 1`, it returns an error message
+
+---
+
 ## ⚙️ Instalación / Installation
 
 1. Cloná o descargá este repositorio dentro de tu carpeta de `custom_nodes` de ComfyUI:
