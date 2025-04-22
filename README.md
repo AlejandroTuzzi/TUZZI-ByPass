@@ -370,6 +370,9 @@ This node scrapes full scientific articles from [journals.plos.org](https://jour
 - If `execute ≠ 1`, it reads the existing file (no new requests)
 - If no cache exists and `execute ≠ 1`, it returns an error message
 
+
+# Nuevo bloque README para los nodos "RangedSelector"
+
 ---
 
 ### 🔢 RangedSelectorText5 & RangedSelectorTitleURL5 / TitleURL10
@@ -399,6 +402,74 @@ These nodes allow you to define text or (title + URL) blocks tied to numeric ran
 - The node returns the content (or title/url pair) for the matching `index`.
 - If values are misconfigured (e.g., range3 < range2), returns a warning.
 - Also returns the `offset` for the current range, useful to reset counters in sequential systems.
+
+### 🧶 DataloungeScraper
+
+**ES**  
+Este nodo extrae todos los comentarios principales desde un hilo público de [DataLounge.com](https://www.datalounge.com). El resultado es un texto procesado, ideal para ser leído línea por línea.
+
+✅ Comportamiento inteligente:
+- Si el autor es “Anonymous”, reemplaza por `** NEXT COMMENT **` para marcar el salto entre comentarios.
+- Si hay nombre de autor real, muestra: `Comment by: Nombre`
+- Guarda en caché la página HTML para evitar múltiples descargas
+- Si `execute ≠ 1` y el archivo ya existe, devuelve el contenido desde la caché
+
+**EN**  
+This node extracts all top-level comments from a public thread on [DataLounge.com](https://www.datalounge.com). The output is clean text, ideal for sequential reading.
+
+✅ Behavior:
+- If author is “Anonymous”, it writes `** NEXT COMMENT **` to separate each block.
+- If a named poster is found, it shows `Comment by: Name`
+- Saves HTML locally as cache to avoid re-downloading
+- If `execute ≠ 1` and file exists, it returns cached content
+
+✅ Parámetros / Parameters:
+- `url`: enlace directo al hilo de Datalounge
+- `execute`: si es 1, fuerza actualización; si no, usa caché
+
+🗂️ Los archivos cacheados se guardan en `datalounge_cache/`.
+
+---
+
+### 🎬 Smart Audio/Video Composer
+
+**ES**  
+Este nodo permite generar un video a partir de dos posibles orígenes visuales:
+
+1. Una imagen estática combinada con audio externo.
+2. Un video `.mp4` completo que ya contiene su propio audio.
+
+✅ Parámetro clave:
+- `visual_mode`: selector de modo visual:
+  - `0` → genera video desde una imagen + audio TTS
+  - `1` → reutiliza un video completo y lo exporta tal cual (incluyendo su audio)
+
+✅ Entradas:
+- `image`: imagen (solo usada en modo 0)
+- `audio`: audio (solo usado en modo 0)
+- `video_path`: ruta al `.mp4` (solo usada en modo 1)
+- `output_subfolder`: subcarpeta dentro de `output/`
+- `fps`: frames por segundo (25 o 30)
+
+**EN**  
+This node creates a video from one of two visual sources:
+
+1. A static image combined with external audio.
+2. A full `.mp4` video that already contains its own audio.
+
+✅ Key parameter:
+- `visual_mode`: visual mode selector:
+  - `0` → generate video from image + TTS audio
+  - `1` → reuse full video and export as-is (with original audio)
+
+✅ Inputs:
+- `image`: image (used only in mode 0)
+- `audio`: audio (used only in mode 0)
+- `video_path`: `.mp4` file (used only in mode 1)
+- `output_subfolder`: folder inside `output/`
+- `fps`: frames per second (25 or 30)
+
+📂 El video generado se guarda en la carpeta `output/<subcarpeta>/` con nombre incremental estilo ComfyUI.
 
 ---
 

@@ -26,6 +26,9 @@ from .plos_article_scraper import PlosArticleScraper
 from .ranged_selector_text5 import RangedSelectorText5
 from .ranged_selector_title_url5 import RangedSelectorTitleURL5
 from .ranged_selector_title_url10 import RangedSelectorTitleURL10
+from .tvtropes_scraper import TVTropesScraper
+from .datalounge_scraper import DataloungeScraper
+
 
 
 NODE_CLASS_MAPPINGS = {
@@ -51,6 +54,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-RangedSelectorText5": RangedSelectorText5,
     "TUZZI-RangedSelectorTitleURL5": RangedSelectorTitleURL5,
     "TUZZI-RangedSelectorTitleURL10": RangedSelectorTitleURL10,
+    "TUZZI-TVTropesScraper": TVTropesScraper,
+    "TUZZI-DataloungeScraper": DataloungeScraper,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -76,4 +81,5 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-RangedSelectorText5": "🧮 Ranged Text Selector (5 Slots)",
     "TUZZI-RangedSelectorTitleURL5": "🧭 Ranged Title + URL Selector (5 Slots)",
     "TUZZI-RangedSelectorTitleURL10": "🔟 Ranged Title + URL Selector (10 Slots)",
+    "TUZZI-TVTropesScraper": "📚 TVTropes Article Scraper",
 }
