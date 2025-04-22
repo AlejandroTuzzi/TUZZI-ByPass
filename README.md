@@ -325,9 +325,6 @@ Replaces links in text with a custom message. Detects:
 - **EN**: Since Python is basic, it doesn't require installing additional libraries. The goal is to create seamless automation that automatically creates videos simply by inserting a long text, such as a book or script. I'll be making updates, but if you need something specific, just ask.
 ---
 
-
----
-
 ### 🌐 GeminiFlash25 (Gemini 2.5 Flash API)
 
 **ES**  
@@ -369,9 +366,6 @@ This node scrapes full scientific articles from [journals.plos.org](https://jour
 - Stores HTML in `plos_cache/`
 - If `execute ≠ 1`, it reads the existing file (no new requests)
 - If no cache exists and `execute ≠ 1`, it returns an error message
-
-
-# Nuevo bloque README para los nodos "RangedSelector"
 
 ---
 
