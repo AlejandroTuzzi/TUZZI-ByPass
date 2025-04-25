@@ -1,3 +1,8 @@
 requests
 moviepy==1.0.3
 youtube-transcript-api
+google-generativeai
+soundfile
+numpy
+Pillow
+beautifulsoup4
