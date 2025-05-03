@@ -1,4 +1,4 @@
-# TUZZI-ByPass - Custom Node
+# TUZZI-ByPass - Custom Node (versión mejorada)
 # Author: Alejandro Tuzzi
 # Website: https://www.tuzzi.es
 # Contact: alejandro@tuzzi.es
@@ -17,6 +17,7 @@ class DirectoryImagePromptReader:
                 "image_directory": ("STRING", {"default": "input_images"}),
                 "allow_subfolders": ("BOOLEAN", {"default": False}),
                 "random_order": ("BOOLEAN", {"default": False}),
+                "manual_filename": ("STRING", {"default": ""}),
             }
         }
 
@@ -26,7 +27,7 @@ class DirectoryImagePromptReader:
     CATEGORY = "TUZZI-ByPass"
 
     def __init__(self):
-        self.cache_file = os.path.join(os.getcwd(), "tuzzi_cache", "directory_image_prompt.json")
+        self.cache_file = os.path.join(os.getcwd(), "tuzzi_cache", "directory_image_prompt_plus.json")
         os.makedirs(os.path.dirname(self.cache_file), exist_ok=True)
         self.state = {"index": 0, "last_dir": "", "shuffled": []}
         self._load_state()
@@ -66,7 +67,7 @@ class DirectoryImagePromptReader:
                     return line.split(":", 1)[1].strip() or "image without text description"
         return "image without text description"
 
-    def load_image_and_prompt(self, image_directory, allow_subfolders, random_order):
+    def load_image_and_prompt(self, image_directory, allow_subfolders, random_order, manual_filename):
         image_paths = self._collect_images(image_directory, allow_subfolders)
         if not image_paths:
             return (None, "No images found", "")
@@ -74,15 +75,21 @@ class DirectoryImagePromptReader:
         if self.state["last_dir"] != image_directory:
             self.state = {"index": 0, "last_dir": image_directory, "shuffled": []}
 
-        if random_order:
-            if not self.state["shuffled"]:
-                self.state["shuffled"] = random.sample(image_paths, len(image_paths))
-            selected = self.state["shuffled"][self.state["index"] % len(self.state["shuffled"])]
+        # Si manual_filename está escrito, forzar usarlo
+        if manual_filename:
+            selected = os.path.join(image_directory, manual_filename)
+            if not os.path.exists(selected):
+                return (None, f"Manual file not found: {manual_filename}", manual_filename)
         else:
-            selected = image_paths[self.state["index"] % len(image_paths)]
+            if random_order:
+                if not self.state["shuffled"]:
+                    self.state["shuffled"] = random.sample(image_paths, len(image_paths))
+                selected = self.state["shuffled"][self.state["index"] % len(self.state["shuffled"])]
+            else:
+                selected = image_paths[self.state["index"] % len(image_paths)]
 
-        self.state["index"] = (self.state["index"] + 1) % len(image_paths)
-        self._save_state()
+            self.state["index"] = (self.state["index"] + 1) % len(image_paths)
+            self._save_state()
 
         image = Image.open(selected).convert("RGB")
         image_tensor = image_to_tensor(image)
@@ -101,5 +108,5 @@ def image_to_tensor(pil_image):
     import numpy as np
     import torch
     array = np.asarray(pil_image).astype(np.float32) / 255.0
-    tensor = torch.from_numpy(array).unsqueeze(0)  # Add batch dimension
+    tensor = torch.from_numpy(array).unsqueeze(0)
     return tensor

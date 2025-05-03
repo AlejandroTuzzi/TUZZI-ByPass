@@ -28,7 +28,7 @@ from .ranged_selector_title_url5 import RangedSelectorTitleURL5
 from .ranged_selector_title_url10 import RangedSelectorTitleURL10
 from .tvtropes_scraper import TVTropesScraper
 from .datalounge_scraper import DataloungeScraper
-
+from .smart_video_composer import SmartAudioVisualComposer
 
 
 NODE_CLASS_MAPPINGS = {
@@ -56,6 +56,9 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-RangedSelectorTitleURL10": RangedSelectorTitleURL10,
     "TUZZI-TVTropesScraper": TVTropesScraper,
     "TUZZI-DataloungeScraper": DataloungeScraper,
+    "TUZZI-SmartAudioVisualComposer": SmartAudioVisualComposer,
+
+    
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -82,4 +85,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-RangedSelectorTitleURL5": "🧭 Ranged Title + URL Selector (5 Slots)",
     "TUZZI-RangedSelectorTitleURL10": "🔟 Ranged Title + URL Selector (10 Slots)",
     "TUZZI-TVTropesScraper": "📚 TVTropes Article Scraper",
+    "TUZZI-SmartAudioVisualComposer": "🎬 Smart Audio/Video Composer",
+
 }
