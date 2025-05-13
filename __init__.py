@@ -1,4 +1,4 @@
-# TUZZI-ByPass - Custom Node
+
 # Author: Alejandro Tuzzi
 # Website: https://www.tuzzi.es
 # Contact: alejandro@tuzzi.es
@@ -29,6 +29,7 @@ from .ranged_selector_title_url10 import RangedSelectorTitleURL10
 from .tvtropes_scraper import TVTropesScraper
 from .datalounge_scraper import DataloungeScraper
 from .smart_video_composer import SmartAudioVisualComposer
+from .groq_node import GroqNode
 
 
 NODE_CLASS_MAPPINGS = {
@@ -57,26 +58,26 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-TVTropesScraper": TVTropesScraper,
     "TUZZI-DataloungeScraper": DataloungeScraper,
     "TUZZI-SmartAudioVisualComposer": SmartAudioVisualComposer,
-
+    "TUZZI-GroqNode": GroqNode,
     
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TUZZI-Bypasser": "Bypasser Switch",
-    "TUZZI-LineCounter": "Count Lines in String",
-    "TUZZI-TextFormatter": "Add Line Breaks to Text",
-    "TUZZI-TextFormatterPlus": "Smart Line Breaks (by Word Count)",
-    "TUZZI-SequentialTextReader": "Sequential Text Reader",
-    "TUZZI-RedditPostExtractor": "Reddit Post Extractor",
-    "TUZZI-NumberLines": "Number Each Line",
-    "TUZZI-ImageAudioToVideo": "Image + Audio to Video",
+    "TUZZI-Bypasser": "🔀 Bypasser Switch",
+    "TUZZI-LineCounter": "🔢 Count Lines in String",
+    "TUZZI-TextFormatter": "🧹 Add Line Breaks to Text",
+    "TUZZI-TextFormatterPlus": "🧠 Smart Line Breaks (by Word Count)",
+    "TUZZI-SequentialTextReader": "📖 Sequential Text Reader",
+    "TUZZI-RedditPostExtractor": "👺 Reddit Post Extractor",
+    "TUZZI-NumberLines": "🔠 Number Each Line",
+    "TUZZI-ImageAudioToVideo": "🖼️🎵 Image + Audio to Video",
     "TUZZI-SaveVideo": "💾 TUZZI Save Video (UI Output)",
-    "TUZZI-YouTubeCommentExtractor": "YouTube Comment Extractor",
-    "TUZZI-YouTubeSubtitleExtractor": "YouTube Subtitle Extractor",
+    "TUZZI-YouTubeCommentExtractor": "📺 YouTube Comment Extractor",
+    "TUZZI-YouTubeSubtitleExtractor": "📝 YouTube Subtitle Extractor",
     "TUZZI-TextTruncatorPlus": "✂️ Text Truncator Plus",
     "TUZZI-SequentialTextReaderAuto": "🪜 Sequential Text Reader (Auto)",
     "TUZZI-LinkSuppressor": "🔗 Link Suppressor",
-    "TUZZI-ImageExtractorSaver": "🖼️ Image Extractor & Saver",
+    "TUZZI-ImageExtractorSaver": "📥🖼️ Image Extractor & Saver",
     "TUZZI-DirectoryImagePromptReader": "🗂️ Image + Prompt Loader (Sequential/Random)",
     "TUZZI-TextTranslatorExporter": "🌍 Text Translator + Exporter (GPT-4)",
     "TUZZI-GeminiFlash25": "⚡ Gemini 2.5 Flash (Text)",
@@ -85,6 +86,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-RangedSelectorTitleURL5": "🧭 Ranged Title + URL Selector (5 Slots)",
     "TUZZI-RangedSelectorTitleURL10": "🔟 Ranged Title + URL Selector (10 Slots)",
     "TUZZI-TVTropesScraper": "📚 TVTropes Article Scraper",
+    "TUZZI-DataloungeScraper": "💬 Datalounge Thread Scraper",
     "TUZZI-SmartAudioVisualComposer": "🎬 Smart Audio/Video Composer",
-
+    "TUZZI-GroqNode": "🤖 Groq Node"
 }
