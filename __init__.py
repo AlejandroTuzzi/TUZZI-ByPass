@@ -1,4 +1,3 @@
-
 # Author: Alejandro Tuzzi
 # Website: https://www.tuzzi.es
 # Contact: alejandro@tuzzi.es
@@ -21,7 +20,7 @@ from .link_suppressor import LinkSuppressor
 from .image_extractor_saver import ImageExtractorSaver
 from .directory_image_prompt_reader import DirectoryImagePromptReader
 from .text_translator_exporter import TextTranslatorExporter
-from .gemini_25_flash_node import GeminiFlash25
+from .gemini_node import GeminiNode
 from .plos_article_scraper import PlosArticleScraper
 from .ranged_selector_text5 import RangedSelectorText5
 from .ranged_selector_title_url5 import RangedSelectorTitleURL5
@@ -30,7 +29,8 @@ from .tvtropes_scraper import TVTropesScraper
 from .datalounge_scraper import DataloungeScraper
 from .smart_video_composer import SmartAudioVisualComposer
 from .groq_node import GroqNode
-
+from .elevenlabs_tts import ElevenLabsTTS
+from .append_to_master_video import AppendToMasterVideo
 
 NODE_CLASS_MAPPINGS = {
     "TUZZI-Bypasser": Bypasser,
@@ -50,7 +50,7 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-ImageExtractorSaver": ImageExtractorSaver,
     "TUZZI-DirectoryImagePromptReader": DirectoryImagePromptReader,
     "TUZZI-TextTranslatorExporter": TextTranslatorExporter,
-    "TUZZI-GeminiFlash25": GeminiFlash25,
+    "TUZZI-GeminiNode": GeminiNode,
     "TUZZI-PlosArticleScraper": PlosArticleScraper,
     "TUZZI-RangedSelectorText5": RangedSelectorText5,
     "TUZZI-RangedSelectorTitleURL5": RangedSelectorTitleURL5,
@@ -59,7 +59,8 @@ NODE_CLASS_MAPPINGS = {
     "TUZZI-DataloungeScraper": DataloungeScraper,
     "TUZZI-SmartAudioVisualComposer": SmartAudioVisualComposer,
     "TUZZI-GroqNode": GroqNode,
-    
+    "TUZZI-ElevenLabsTTS": ElevenLabsTTS,
+    "TUZZI-AppendToMasterVideo": AppendToMasterVideo,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -80,7 +81,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-ImageExtractorSaver": "📥🖼️ Image Extractor & Saver",
     "TUZZI-DirectoryImagePromptReader": "🗂️ Image + Prompt Loader (Sequential/Random)",
     "TUZZI-TextTranslatorExporter": "🌍 Text Translator + Exporter (GPT-4)",
-    "TUZZI-GeminiFlash25": "⚡ Gemini 2.5 Flash (Text)",
+    "TUZZI-GeminiNode": "⚡ Gemini Node (Text)",
     "TUZZI-PlosArticleScraper": "📖 PLOS Article Scraper",
     "TUZZI-RangedSelectorText5": "🧮 Ranged Text Selector (5 Slots)",
     "TUZZI-RangedSelectorTitleURL5": "🧭 Ranged Title + URL Selector (5 Slots)",
@@ -88,5 +89,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "TUZZI-TVTropesScraper": "📚 TVTropes Article Scraper",
     "TUZZI-DataloungeScraper": "💬 Datalounge Thread Scraper",
     "TUZZI-SmartAudioVisualComposer": "🎬 Smart Audio/Video Composer",
-    "TUZZI-GroqNode": "🤖 Groq Node"
+    "TUZZI-GroqNode": "🤖 Groq Node",
+    "TUZZI-ElevenLabsTTS": "🗣️ ElevenLabs TTS Generator",
+    "TUZZI-AppendToMasterVideo": "📼 Append to Master Video",
 }
